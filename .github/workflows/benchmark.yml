@@ -4,6 +4,7 @@ on:
   pull_request:
     types:
       - opened
+      - edited
       - labeled
       - unlabeled
     paths:
@@ -30,7 +31,7 @@ jobs:
   benchmarks:
     runs-on: ubuntu-latest
     if: |
-      contains(github.event.issue.labels.*.name, 'benchmark')
+      contains(github.event.pull_request.labels.*.name, 'benchmark')
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
