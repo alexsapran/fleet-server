@@ -2,6 +2,12 @@
 name: benchmark
 on:
   pull_request:
+    types:
+      - opened
+      - labeled
+      - unlabeled
+    paths:
+      - '**.go'
   workflow_dispatch:
     inputs:
       old:
@@ -23,6 +29,8 @@ env:
 jobs:
   benchmarks:
     runs-on: ubuntu-latest
+    if: |
+      contains(github.event.issue.labels.*.name, 'benchmark')
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
