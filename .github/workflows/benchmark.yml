@@ -3,12 +3,13 @@ name: benchmark
 on:
   pull_request:
     types:
+      # opened, synchronize, or reopened is the default of the pull_request
       - opened
-      - edited
+      - reopened
+      - synchronize
+      # Additional types to trigger running the workflow
       - labeled
       - unlabeled
-    paths:
-      - '**.go'
   workflow_dispatch:
     inputs:
       old:
