@@ -21,6 +21,7 @@ import (
 
 func benchmarkMultiUpdate(n int, b *testing.B) {
 	log.Logger = testlog.SetLogger(b)
+	
 	b.ReportAllocs()
 
 	ctx, cn := context.WithCancel(context.Background())
