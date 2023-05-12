@@ -51,7 +51,7 @@ LDFLAGS:=-s -w ${LDFLAGS}
 else
 GCFLAGS ?= all=-N -l
 endif
-
+  
 # Directory to dump build tools into
 GOBIN=$(shell go env GOPATH)/bin/
 
